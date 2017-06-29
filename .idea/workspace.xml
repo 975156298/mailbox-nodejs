@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5968db25-f9b2-446e-a7ee-03ec7fe913da" name="默认" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/draft.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/inbox.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/mail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/outbox.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/write.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/middlewares/check.js" afterPath="$PROJECT_DIR$/middlewares/check.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/common/head_nav.ejs" afterPath="$PROJECT_DIR$/views/common/head_nav.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/main.js" afterPath="$PROJECT_DIR$/routes/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/mongo.js" afterPath="$PROJECT_DIR$/lib/mongo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/register.js" afterPath="$PROJECT_DIR$/public/javascripts/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/register.js" afterPath="$PROJECT_DIR$/routes/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/signin.js" afterPath="$PROJECT_DIR$/routes/signin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.js" afterPath="$PROJECT_DIR$/models/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mailbox.iws" />
@@ -48,11 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mail.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/mail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.95348835">
+            <state vertical-scroll-proportion="0.0">
               <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12931034">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,7 +111,6 @@
         <option value="$PROJECT_DIR$/views/register.ejs" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/default.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/views/signin.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/signin.js" />
         <option value="$PROJECT_DIR$/public/javascripts/common.js" />
@@ -135,6 +130,7 @@
         <option value="$PROJECT_DIR$/views/draft.ejs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/mail.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -238,24 +234,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mailbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mailbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -542,14 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12931034">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.093023255">
@@ -712,8 +682,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/mail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95348835">
+        <state vertical-scroll-proportion="0.0">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12931034">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
