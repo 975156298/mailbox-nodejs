@@ -1,0 +1,33 @@
+<%- include('common/head') %>
+<div class="panel panel-default horizontal-center">
+    <div class="panel-heading ">
+        <span class="title text-center">710邮箱账号注册</span>
+    </div>
+    <div class="panel-body margin-top-40">
+        <form id="register" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-3">邮件地址：</label>
+                <div class="col-sm-8">
+                    <input class="form-control" name="email" type="text" placeholder="请输入地址"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">密码:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" name="password" type="password" placeholder="请输入至少六位密码"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">重复密码:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" name="rePassword" type="password" placeholder="请输入与上面一致的密码"/>
+                </div>
+            </div>
+            <div class="col-sm-offset-3 margin-top-20 margin-bottom-40 col-sm-8">
+                <button type="button" class="btn btn-primary btn-block" onclick="save_user_info()">注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="/javascripts/signin.js"></script>
+<%- include('common/footer') %>

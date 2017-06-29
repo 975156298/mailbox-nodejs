@@ -1,0 +1,41 @@
+<%- include('common/head') %>
+
+<div class="margin-top-20">
+    <div class="panel panel-default horizontal-right margin-left-20">
+        <div class="panel-heading text-center">
+           <span class="title"> 邮箱账号登录</span>
+        </div>
+        <div class="panel-body margin-left-20 margin-right-20">
+            <form id="register" class="margin-top-40">
+                <div class="form-group ">
+                    <input class="form-control" name="email" type="text" placeholder="请输入地址"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="password" type="password" placeholder="密码至少六位">
+                </div>
+
+                <div class="form-group margin-top-40">
+                    <button type="button" class="btn btn-primary btn-block " onclick="">登录</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <a href="">忘了密码？</a>
+            <span>|</span>
+            <a target="_blank" href="JavaScript:window.open(window.location.protocol + '//' + window.location.host +'/register')">注册新账号</a>
+        </div>
+    </div>
+    <img style="float: right;width: 27%;" src="https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/tg-chang1ea8a2.png">
+    <div class="mailbox-background margin-top-40">
+       <div class="text-right">
+           <h3>710邮箱</h3>
+           <p>2500年前，人们飞鸽传书</p>
+           <p>181年前，莫尔斯发明了电报</p>
+           <p>48年前，第一封电子邮件发出</p>
+           <p>今天，710邮箱联系你、我、他</p>
+       </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/javascripts/signin.js"></script>
+<%- include('common/footer') %>
