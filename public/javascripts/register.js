@@ -14,28 +14,28 @@ $(document).ready(function () {
                             message: '邮箱不能为空'
                         },
                         remote: {
-                         url: '/register/user',
-                         message: '用户名已存在'
-                         },
+                            url: '/register/user',
+                            message: '用户名已存在'
+                        },
                         emailAddress: {
                             message: '请输入正确的邮箱形式'
                         }
                     }
 
-                }
-            },
-            password: {
-                validators: {
-                    notEmpty: {
-                        message: '密码不能为空'
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        }
                     }
-                }
-            },
-            rePassword: {
-                validators: {
-                    identical: {
-                        field: 'password',
-                        message: '密码不一致'
+                },
+                rePassword: {
+                    validators: {
+                        identical: {
+                            field: 'password',
+                            message: '密码不一致'
+                        }
                     }
                 }
             }

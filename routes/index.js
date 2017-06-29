@@ -7,4 +7,5 @@ module.exports = function(app){
   app.use('/main', require('./main'));
   app.use('/signin', require('./signin'));
   app.use('/register', require('./register'));
+  app.use('/mail', require('./mail'))
 };

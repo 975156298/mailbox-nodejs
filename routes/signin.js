@@ -6,7 +6,8 @@ var checkNotLogin = require('../middlewares/check').checkNotLogin;
 router.get('/',checkNotLogin,function(req,res,next){
     res.render('signin',{
         title:'mailbox',
-        user: ''
+        user: '',
+        active: 0
     })
 });
 
