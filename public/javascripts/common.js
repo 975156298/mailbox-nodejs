@@ -2,6 +2,16 @@ function jumpPage(url){
     window.location.href = window.location.protocol + '//' + window.location.host + url;
 }
 
+function signout(){
+    get_ajax('/signin/signout',function(data){
+        if(data.status == 200){
+            show_alert(data.message,function(){
+                jumpPage('/signin')
+            })
+        }
+    })
+}
+
 function post_ajax(url, data, suc_fun, err_fun) {
     $.ajax({
         url: window.location.protocol + '//' + window.location.host+url,
