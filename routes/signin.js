@@ -18,7 +18,7 @@ router.post('/',checkNotLogin,function(req,res,next){
                 return res.json({status:404,message:'用户名不存在'})
             }
             if(user.password == req.body.password){
-                req.session._id = user._id;
+                req.session.email = user.email;
                 return res.json({status:200,message:'登录成功'})
             }else{
                 return res.json({status:404,message:'密码错误'})
@@ -27,7 +27,7 @@ router.post('/',checkNotLogin,function(req,res,next){
 });
 
 router.get('/signout',function(req,res,next){
-    req.session._id = null;
+    req.session.email = null;
     return res.json({status: 200,message:'成功退出'})
 });
 

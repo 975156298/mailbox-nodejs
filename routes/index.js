@@ -1,7 +1,12 @@
 
 module.exports = function(app){
   app.get('/',function(req,res,next){
-    res.redirect('/signin');
+    if(req.session.email){
+      res.redirect('/main');
+    }else{
+      res.redirect('/signin');
+    }
+
   });
 
   app.use('/main', require('./main'));

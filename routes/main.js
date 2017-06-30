@@ -5,7 +5,7 @@ var checkLogin = require('../middlewares/check').checkLogin;
 router.get('/',checkLogin,function(req,res,next){
     res.render('index',{
         title:'mailbox',
-        user: req.session._id,
+        user: req.session.email,
         active: 1
     })
 });
