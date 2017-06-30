@@ -11,7 +11,7 @@
                 <li class="<%= active == 4 ? 'active' : ''%>"><a href="/mail/outbox">发件箱</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a><%= user %></a></li>
+                <li><a><%= user ? user.email : null %></a></li>
                 <li><a href="JavaScript:signout()">退出</a></li>
             </ul>
         </div>

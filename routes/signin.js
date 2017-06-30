@@ -17,7 +17,10 @@ router.post('/',checkNotLogin,function(req,res,next){
                 return res.json({status:404,message:'用户名不存在'})
             }
             if(user.password == req.body.password){
-                req.session.email = user.email;
+                req.session.email = {
+                    _id: user._id,
+                    email: user.email
+                };
                 return res.json({status:200,message:'登录成功'})
             }else{
                 return res.json({status:404,message:'密码错误'})

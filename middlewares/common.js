@@ -8,7 +8,7 @@ function nowDate(){
     var data=now_date.getDate()>=10 ? now_date.getDate() : '0'+now_date.getDate();
     var time = now_date.getHours()>=10 ? now_date.getHours() : '0'+now_date.getHours();
     var minutes = now_date.getMinutes() >=10 ? now_date.getMinutes() : '0'+now_date.getMinutes();
-    var date =year+'-'+month+'-'+data + ' ' +time+ '-' + minutes;
+    var date =year+'-'+month+'-'+data + ' ' +time+ ':' + minutes;
     return date;
 }
 

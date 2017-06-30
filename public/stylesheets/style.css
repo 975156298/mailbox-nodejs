@@ -48,3 +48,12 @@ body {
   width: 40%;
   margin-left: -20%;
 }
+.main-background{
+  background-color: #f8f8f8
+}
+.page{
+  width: 30px;
+  border-radius: 5px;
+  padding: 3px;
+
+}

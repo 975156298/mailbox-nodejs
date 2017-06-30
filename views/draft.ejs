@@ -1,5 +1,45 @@
-
 <%- include('common/head.ejs') %>
 
+<div>
+    <div class="margin-left-20 margin-right-20">
+        <button class="btn btn-danger" onclick="delMail('/mail/draft/del')">删除草稿</button>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-sm-1">
+                    <input type="checkbox" id="selectAll">
+                </th>
+                <th class="col-sm-1"><span class="glyphicon glyphicon-envelope"></span></th>
+                <th class="col-sm-1">收件人</th>
+                <th class="col-sm-7">主题</th>
+                <th class="col-sm-2">时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% mails.forEach(function(mail){%>
+            <tr>
+                <td><input type="checkbox" name="checked" value="<%= mail._id %>"></td>
+                <td><span class="glyphicon glyphicon-envelope"></span></td>
+                <td><%= mail.toMail %></td>
+                <td><%= mail.title%></td>
+                <td><%= mail.updated_at%></td>
+            </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <button class="btn btn-danger margin-top-20" onclick="delMail('/mail/draft/del')">删除草稿</button>
+       <div class="pull-right">
 
+           <ul class="pager">
+               <span class="margin-right-20">1/1</span>
+               <li><a href="#">上一页</a></li>
+               <li><a href="#">下一页</a></li>
+               <li><input type="text" id="page" class="page"></li>
+               <li><a href="#">跳转</a></li>
+           </ul>
+       </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/javascripts/draft.js" ></script>
 <%- include('common/footer') %>

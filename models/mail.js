@@ -17,5 +17,15 @@ module.exports = {
             .populate({ path: 'inMail', model: 'User' })
             .sort({_id: -1})
             .exec();
+    },
+    getDraftMail: function getDraftMail(inMail,state){
+        return Mail
+            .find({inMail: inMail,state: state})
+            .populate({path:'inMail',model:'User'})
+            .sort({_id: -1})
+            .exec();
+    },
+    delMail: function delMail(id){
+        return Mail.remove({_id: id}).exec();
     }
 };
