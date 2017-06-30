@@ -1,17 +1,17 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header ">
-            <a class="navbar-brand " href="#">mailbox</a>
+            <a class="navbar-brand " href="<%= user ? '/main' : '#'%>">mailbox</a>
         </div>
-        <div class="<%= user == '' ? 'hide' : '' %>">
+        <div class="<%= !user  ? 'hide' : '' %>">
             <ul class="nav navbar-nav navbar-left">
-                <li class="<%= active == 1 ? 'active' : ''%>"><a href="#">写信</a></li>
-                <li class="<%= active == 2 ? 'active' : ''%>"><a href="#">收信箱</a></li>
-                <li class="<%= active == 3 ? 'active' : ''%>"><a href="#">草稿箱</a></li>
-                <li class="<%= active == 4 ? 'active' : ''%>"><a href="#">发件箱</a></li>
+                <li class="<%= active == 1 ? 'active' : ''%>"><a href="/mail/write">写信</a></li>
+                <li class="<%= active == 2 ? 'active' : ''%>"><a href="/mail">收信箱</a></li>
+                <li class="<%= active == 3 ? 'active' : ''%>"><a href="/mail/draft">草稿箱</a></li>
+                <li class="<%= active == 4 ? 'active' : ''%>"><a href="/mail/outbox">发件箱</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a>975156298@qq.com</a></li>
+                <li><a><%= user %></a></li>
                 <li><a href="JavaScript:signout()">退出</a></li>
             </ul>
         </div>

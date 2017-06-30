@@ -39,6 +39,14 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*app.locals.blog = {
+  title: pkg.name,
+};*/
+app.use(function (req, res, next) {
+  res.locals.user = req.session.email;
+  next();
+});
+
 routes(app);
 app.use('/users', users);
 
