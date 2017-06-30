@@ -37,11 +37,11 @@ $(document).ready(function () {
                 success: function (result) {
                     if (result.status == 200) {
                         $("#signin").data('formValidation').resetForm(true);//重置表单
-                        show_alert(result.message,function(){
+                        showAlert(result.message,function(){
                             jumpPage('/main')
                         });
                     } else {
-                        show_alert(result.message)
+                        showAlert(result.message)
                     }
                 }
             });

@@ -3,16 +3,16 @@ function jumpPage(url){
 }
 
 function signout(){
-    get_ajax('/signin/signout',function(data){
+    getAjax('/signin/signout',function(data){
         if(data.status == 200){
-            show_alert(data.message,function(){
+            showAlert(data.message,function(){
                 jumpPage('/signin')
             })
         }
     })
 }
 
-function post_ajax(url, data, suc_fun, err_fun) {
+function postAjax(url, data, suc_fun, err_fun) {
     $.ajax({
         url: window.location.protocol + '//' + window.location.host+url,
         method: 'POST',
@@ -26,7 +26,7 @@ function post_ajax(url, data, suc_fun, err_fun) {
     })
 }
 
-function get_ajax(url,suc_fun,err_fun){
+function getAjax(url,suc_fun,err_fun){
     $.ajax({
         url: url,
         method: 'GET',
@@ -39,7 +39,7 @@ function get_ajax(url,suc_fun,err_fun){
     })
 }
 
-function show_alert(message,cfm_fuc){
+function showAlert(message,cfm_fuc){
     $.alert({
         title: false,
         content: message,
@@ -57,7 +57,7 @@ function show_alert(message,cfm_fuc){
     })
 }
 
-function show_confirm(message,cfm_fuc){
+function showConfirm(message,cfm_fuc){
     $.confirm({
         title: false,
         content: message,

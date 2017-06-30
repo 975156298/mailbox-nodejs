@@ -1,6 +1,53 @@
-
 <%- include('common/head.ejs') %>
 
+<div style="background-color: #f8f8f8">
+    <form id="write" class="form-horizontal margin-left-20 margin-right-20">
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="button" class="btn btn-primary margin-right-20" onclick="sendMail()">发送</button>
+                <button type="button" class="btn btn-primary margin-right-20" onclick="saveDraft('write','/mail/draft')">存草稿</button>
+                <button type="button" class="btn btn-primary" onclick="jumpPage('/main')">关闭</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="toMail">收件人</label>
 
+            <div class="col-sm-9">
+                <input class="form-control" id="toMail" name="toMail" type="text" placeholder="请填写收件人">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="title">主题</label>
+            <div class="col-sm-9">
+                <input class="form-control" id="title" name="title" type="text" placeholder="请填写主题">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >正文</label>
+            <input class="form-control hide" id="text" name="text" type="text"/>
+            <div class="col-sm-9">
+                <div id="text"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <p>发件人： <%= user %></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="button" class="btn btn-primary margin-right-20" onclick="">发送</button>
+                <button type="button" class="btn btn-primary margin-right-20" onclick="saveDraft('write','/mail/draft')">存草稿</button>
+                <button type="button" class="btn btn-primary" onclick="jumpPage('/main')">关闭</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="/common/wangEditor/wangEditor.js"></script>
+<script type="text/javascript" src="/javascripts/write.js"></script>
+<script type="text/javascript">
+
+</script>
 
 <%- include('common/footer') %>

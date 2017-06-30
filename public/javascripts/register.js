@@ -50,11 +50,11 @@ $(document).ready(function () {
                     console.log(result);
                     if (result.status == 200) {
                         $("#register").data('formValidation').resetForm(true);//重置表单
-                        show_alert(result.message,function(){
+                        showAlert(result.message,function(){
                             jumpPage('/signin')
                          });
                     } else {
-                        show_alert(result.message)
+                        showAlert(result.message)
                     }
                 }
             });
