@@ -24,3 +24,9 @@ function saveDraft(id,url){
         }
     })
 }
+
+function sendMail(){
+    postAjax('/mail/write','',function(data){
+
+    });
+}

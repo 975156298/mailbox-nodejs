@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var async = require('async');
+var nodemailer = require('nodemailer');
+
 var checkLogin = require('../middlewares/check').checkLogin;
 var MailModel = require('../models/mail');
 var nowDate = require('../middlewares/common').nowDate();
@@ -15,13 +17,23 @@ router.get('/', checkLogin, function (req, res, next) {
 
 
 router.get('/draft', checkLogin, function (req, res, next) {
-    MailModel.getDraftMail(req.session.email._id, '2')
+    var page = req.query.page || 1 ;
+    MailModel.getDraftMail(req.session.email._id, '2',page)
         .then(function (result) {
-            res.render('draft', {
-                title: 'mailbox',
-                active: 3,
-                mails: result
-            })
+            MailModel.getMailNum({inMail: req.session.email._id,state: '2'})
+                .then(function(num){
+                    var pageTotal = Math.ceil(JSON.parse(num) / 10);
+                    res.render('draft', {
+                        title: 'mailbox',
+                        active: 3,
+                        mails: result,
+                        page: page,
+                        pageTotal: pageTotal
+                    })
+                })
+                .catch(function (e) {
+                    next(e);
+                });
         })
         .catch(function (e) {
             next(e);
@@ -34,7 +46,6 @@ router.get('/draft/del', checkLogin, function (req, res, next) {
         function (item, callback) {
             MailModel.delMail(item)
                 .then(function (result) {
-                    console.log(result);
                     callback(null,result);
                 })
                 .catch(function (e) {
@@ -83,6 +94,25 @@ router.get('/write', checkLogin, function (req, res, next) {
         title: 'mailbox',
         active: 1
     })
+});
+
+router.post('/write',checkLogin, function(req,res,next){
+    var transport = nodemailer.createTransport('smtps://15733112788%40163.com:a950710@smtp.163.com');
+    var mailOptions = {
+        from: '15733112788@163.com',  //发件人
+        to: '975156298@qq.com',  //收件人，可以设置多个
+        subject: 'ces',  //邮件主题
+        text: 'ces',  //邮件文本
+        html: ''  //html格式文本
+    };
+    transport.sendMail(mailOptions, function(err, info){
+        if(err){
+            console.log('出错');
+            return console.log(err);
+        }
+        console.log("发送成功");
+        console.log('Message sent: ' + info.response);
+    });
 });
 
 

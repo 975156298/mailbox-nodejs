@@ -26,5 +26,8 @@
     "serve-favicon": "~2.4.2",
     "sha1": "^1.1.1",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemailer": "^4.0.1"
   }
 }
