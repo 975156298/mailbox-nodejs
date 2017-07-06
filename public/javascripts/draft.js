@@ -70,17 +70,20 @@ function changePage(id){
 function mailManage(id,url,state){
     $('#state').val(state);
     $('#text').val(editor.txt.html());
-    postAjax(url,$('#'+id).serialize(),function(data){
-        if(data.status == 200){
-            showAlert(data.message,function(){
-                if(state == '2'){
-                    jumpPage('/mail/draft')
-                }else{
-                    jumpPage('/main')
-                }
-            })
-        }else{
-            showAlert(data.message);
-        }
-    })
+    formvalidation_init(id,url);
+    if($('#'+id).data('formValidation').validate().isValid()){
+        postAjax(url,$('#'+id).serialize(),function(data){
+            if(data.status == 200){
+                showAlert(data.message,function(){
+                    if(state == '2'){
+                        jumpPage('/mail/draft')
+                    }else{
+                        jumpPage('/main')
+                    }
+                })
+            }else{
+                showAlert(data.message);
+            }
+        })
+    }
 }
