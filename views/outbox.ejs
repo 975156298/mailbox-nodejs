@@ -44,26 +44,26 @@
 </div>
 <div id="edit" class="hide">
     <div class="main-background">
-        <form id="write" class="form-horizontal margin-left-20 margin-right-20">
+        <form id="outboxEdit" class="form-horizontal margin-left-20 margin-right-20">
             <div class="form-group">
                 <div class="col-sm-offset-2">
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="sendMail('write','/mail/write')">发送</button>
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="saveDraft('write','/mail/update')">存草稿</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('outboxEdit','/mail/write','0')">发送</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('outboxEdit','/mail/draft','2')">存草稿</button>
                     <button type="button" class="btn btn-primary" onclick="changePage('outbox')">关闭</button>
                 </div>
                 <input class="hide" id="mailId" name="mailId" />
+                <input class="hide" id="state" name="state" />
             </div>
             <%- include('common/edit.ejs')%>
             <div class="form-group">
                 <div class="col-sm-offset-2">
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="sendMail('write','/mail/write')">发送</button>
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="saveDraft('write','/mail/update')">存草稿</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('outboxEdit','/mail/write','0')">发送</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('outboxEdit','/mail/draft','2')">存草稿</button>
                     <button type="button" class="btn btn-primary" onclick="changePage('outbox')">关闭</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<script type="text/javascript" src="/javascripts/write.js"></script>
 <script type="text/javascript" src="/javascripts/draft.js" ></script>
 <%- include('common/footer') %>

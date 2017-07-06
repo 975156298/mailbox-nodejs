@@ -78,7 +78,15 @@ function mailManage(id,url,state){
                     if(state == '2'){
                         jumpPage('/mail/draft')
                     }else{
-                        jumpPage('/main')
+                        if(id == 'draftEdit'){
+                            getAjax('/mail/del?mailId=' + $('#mailId').val(),function(data){
+                                if(data.status == 200){
+                                    jumpPage('/main')
+                                }
+                            });
+                        }else{
+                            jumpPage('/main')
+                        }
                     }
                 })
             }else{

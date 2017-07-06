@@ -52,7 +52,6 @@ router.post('/write',checkLogin,function(req,res,next){
         created_at: nowDate,
         updated_at: nowDate
     };
-    console.log(mailInfo)
     MailModel.create(mailInfo)
         .then(function (result) {
             if (result.result.ok == 1) {
@@ -152,7 +151,6 @@ router.get('/outbox', checkLogin, function (req, res, next) {
 });
 
 router.post('/update',checkLogin, function(req,res,next){
-    console.log(req.body);
     var mailInfo = {
         toMail: req.body.toMail,
         title: req.body.title,

@@ -43,11 +43,11 @@
 
 <div id="edit" class="hide">
     <div class="main-background">
-        <form id="write" class="form-horizontal margin-left-20 margin-right-20">
+        <form id="draftEdit" class="form-horizontal margin-left-20 margin-right-20">
             <div class="form-group">
                 <div class="col-sm-offset-2">
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/write','0')">发送</button>
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/update','2')">存草稿</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('draftEdit','/mail/write','0')">发送</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('draftEdit','/mail/update','2')">存草稿</button>
                     <button type="button" class="btn btn-primary" onclick="changePage('draft')">关闭</button>
                 </div>
                 <input class="hide" id="mailId" name="mailId" />
@@ -56,8 +56,8 @@
             <%- include('common/edit.ejs')%>
             <div class="form-group">
                 <div class="col-sm-offset-2">
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/write','0')">发送</button>
-                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/update','2')">存草稿</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('draftEdit','/mail/write','0')">发送</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('draftEdit','/mail/update','2')">存草稿</button>
                     <button type="button" class="btn btn-primary" onclick="changePage('draft')">关闭</button>
                 </div>
             </div>
