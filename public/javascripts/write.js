@@ -1,13 +1,3 @@
-$(document).ready(function(){
-    createWE("text");
-});
-
-function createWE(id){
-    editor = new window.wangEditor('#'+id);
-    editor.create();
-
-}
-
 function saveDraft(id,url){
     $('#text').val(editor.txt.html());
     postAjax(url,$('#'+id).serialize(),function(data){

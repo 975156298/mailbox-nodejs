@@ -1,4 +1,22 @@
 <%- include('common/head.ejs') %>
-<%- include('common/edit.ejs') %>
-
+<div class="main-background">
+    <form id="write" class="form-horizontal margin-left-20 margin-right-20">
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="button" class="btn btn-primary margin-right-20" onclick="sendMail('write','/mail/write')">发送</button>
+                <button type="button" class="btn btn-primary margin-right-20" onclick="saveDraft('write','/mail/draft')">存草稿</button>
+                <button type="button" class="btn btn-primary" onclick="jumpPage('/main')">关闭</button>
+            </div>
+        </div>
+        <%- include('common/edit.ejs') %>
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <button type="button" class="btn btn-primary margin-right-20" onclick="sendMail('write','/mail/write')">发送</button>
+                <button type="button" class="btn btn-primary margin-right-20" onclick="saveDraft('write','/mail/draft')">存草稿</button>
+                <button type="button" class="btn btn-primary" onclick="jumpPage('/main')">关闭</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/javascripts/write.js"></script>
 <%- include('common/footer') %>

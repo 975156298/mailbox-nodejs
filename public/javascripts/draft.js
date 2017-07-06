@@ -51,7 +51,36 @@ function getPageData(num,url){
         jumpPage('/mail/' + url + '?page='+ $('#page').val());
     }
 }
-
 function getMail(url,state){
     jumpPage('/mail' + url+'?state=' + state);
+}
+function editMail(id,mailId,toMail,title,text){
+    $('#'+id).addClass('hide');
+    $('#edit').removeClass('hide');
+    $('#mailId').val(mailId);
+    $('#toMail').val(toMail);
+    $('#title').val(title);
+    editor.txt.html(text)
+}
+function changePage(id){
+    $('#edit').addClass('hide');
+    $('#'+id).removeClass('hide');
+}
+
+function mailManage(id,url,state){
+    $('#state').val(state);
+    $('#text').val(editor.txt.html());
+    postAjax(url,$('#'+id).serialize(),function(data){
+        if(data.status == 200){
+            showAlert(data.message,function(){
+                if(state == '2'){
+                    jumpPage('/mail/draft')
+                }else{
+                    jumpPage('/main')
+                }
+            })
+        }else{
+            showAlert(data.message);
+        }
+    })
 }

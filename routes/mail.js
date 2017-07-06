@@ -43,7 +43,6 @@ router.get('/write', checkLogin, function (req, res, next) {
 
 
 router.post('/write',checkLogin,function(req,res,next){
-    console.log(req.body);
     var mailInfo = {
         toMail: req.body.toMail,
         inMail: req.session.email._id,
@@ -152,7 +151,29 @@ router.get('/outbox', checkLogin, function (req, res, next) {
         });
 });
 
-
+router.post('/update',checkLogin, function(req,res,next){
+    console.log(req.body);
+    var mailInfo = {
+        toMail: req.body.toMail,
+        title: req.body.title,
+        text: req.body.text,
+        state: req.body.state,
+        updated_at: nowDate
+    };
+    MailModel.update(req.body.mailId, mailInfo)
+        .then(function (result){
+            if(result.result.ok == 1){
+                if(req.body.state == '2') return res.json({status: 200,message: '保持草稿成功'});
+                if(req.body.state == '0') return res.json({status: 200,message: '发送邮件成功'});
+            }else{
+                if(req.body.state == '2') return res.json({status: 200,message: '保存草稿失败'});
+                if(req.body.state == '0') return res.json({status: 200,message: '发送邮件失败'});
+            }
+        })
+        .catch(function (e) {
+            next(e);
+        });
+});
 
 router.get('/del', checkLogin, function (req, res, next) {
     var mailId = req.query.mailId.split(',');

@@ -4,6 +4,12 @@ module.exports = {
     create: function create(mail){
         return Mail.create(mail).exec();
     },
+    update: function update(id,data){
+        return Mail.update({_id: id},{$set: data}).exec();
+    },
+    delMail: function delMail(id){
+        return Mail.remove({_id: id}).exec();
+    },
     getSendMail: function getSendMail(inMail,state,page){  //获取发送的邮件
         var start = (page -1) * 10;
         return Mail
@@ -36,8 +42,6 @@ module.exports = {
     },
     getMailNum: function getMailNum(data){
         return Mail.count(data).exec();
-    },
-    delMail: function delMail(id){
-        return Mail.remove({_id: id}).exec();
     }
+
 };

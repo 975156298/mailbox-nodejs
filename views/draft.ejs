@@ -17,11 +17,11 @@
             </thead>
             <tbody>
             <% mails.forEach(function(mail){ %>
-            <tr onclick="editMail()">
+            <tr>
                 <td><input type="checkbox" name="checked" value="<%= mail._id %>"></td>
                 <td><span class="glyphicon glyphicon-envelope"></span></td>
                 <td><%= mail.toMail %></td>
-                <td><%= mail.title%></td>
+                <td id="mouseMove" onclick="editMail('draft','<%= mail._id %>','<%= mail.toMail %>','<%= mail.title %>','<%= mail.text %>')"><%= mail.title%></td>
                 <td><%= mail.updated_at%></td>
             </tr>
             <% }) %>
@@ -30,7 +30,7 @@
         <button class="btn btn-danger margin-top-20" onclick="delMail('/draft')">删除草稿</button>
        <div class="pull-right">
 
-           <ul class="pager">
+           <ul class="pager" >
                <span class="margin-right-20"><%= page + '/' + pageTotal %></span>
                <li class="<%= page == '1' ? 'hide' : null%>"><a href="/mail/draft?page=<%= JSON.parse(page) - 1%>">上一页</a></li>
                <li class="<%= page == pageTotal ? 'hide' : ''%>"><a href="/mail/draft?page=<%= JSON.parse(page) + 1%>">下一页</a></li>
@@ -41,5 +41,28 @@
     </div>
 </div>
 
+<div id="edit" class="hide">
+    <div class="main-background">
+        <form id="write" class="form-horizontal margin-left-20 margin-right-20">
+            <div class="form-group">
+                <div class="col-sm-offset-2">
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/write','0')">发送</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/update','2')">存草稿</button>
+                    <button type="button" class="btn btn-primary" onclick="changePage('draft')">关闭</button>
+                </div>
+                <input class="hide" id="mailId" name="mailId" />
+                <input class="hide" id="state" name="state" />
+            </div>
+            <%- include('common/edit.ejs')%>
+            <div class="form-group">
+                <div class="col-sm-offset-2">
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/write','0')">发送</button>
+                    <button type="button" class="btn btn-primary margin-right-20" onclick="mailManage('write','/mail/update','2')">存草稿</button>
+                    <button type="button" class="btn btn-primary" onclick="changePage('draft')">关闭</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <script type="text/javascript" src="/javascripts/draft.js" ></script>
 <%- include('common/footer') %>
