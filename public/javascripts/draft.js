@@ -2,7 +2,6 @@ $(document).ready(function () {
     selectAll();
     selected();
 });
-
 function selectAll(){
     $('#selectAll').click(function () {
         if( $('#selectAll').prop("checked")){
@@ -12,7 +11,6 @@ function selectAll(){
         }
     })
 }
-
 function delMail(url){
     var mailId = [];
     $('input[name="checked"]').each(function() {
@@ -21,18 +19,19 @@ function delMail(url){
         }
     });
     if(mailId.length>0){
-        getAjax(url+'?mailId=' + mailId,function(data){
-            if(data.status == 200){
-                showAlert(data.message,function(){
-                    jumpPage('/mail/draft');
-                })
-            }
+        showConfirm('您确定删除邮件吗？',function(){
+            getAjax('/mail/del?mailId=' + mailId,function(data){
+                if(data.status == 200){
+                    showAlert(data.message,function(){
+                        jumpPage('/mail/' + url);
+                    })
+                }
+            });
         });
     }else{
         showAlert("请至少选中一封邮件")
     }
 }
-
 function selected(){
     $("input[name='checked']").click(function(){
         $('input[name="checked"]').each(function() {
@@ -45,11 +44,14 @@ function selected(){
         });
     })
 }
-
-function getPageData(num){
+function getPageData(num,url){
     if( JSON.parse($('#page').val()) >= JSON.parse(num)){
-        jumpPage('/mail/draft?page='+ num);
+        jumpPage('/mail/' + url + '?page='+ num);
     }else{
-        jumpPage('/mail/draft?page='+ $('#page').val());
+        jumpPage('/mail/' + url + '?page='+ $('#page').val());
     }
+}
+
+function getMail(url,state){
+    jumpPage('/mail' + url+'?state=' + state);
 }

@@ -2,7 +2,7 @@
 
 <div>
     <div class="margin-left-20 margin-right-20">
-        <button class="btn btn-danger" onclick="delMail('/mail/draft/del')">删除草稿</button>
+        <button class="btn btn-danger" onclick="delMail('/draft')">删除草稿</button>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -16,7 +16,7 @@
             </tr>
             </thead>
             <tbody>
-            <% mails.forEach(function(mail){%>
+            <% mails.forEach(function(mail){ %>
             <tr>
                 <td><input type="checkbox" name="checked" value="<%= mail._id %>"></td>
                 <td><span class="glyphicon glyphicon-envelope"></span></td>
@@ -27,7 +27,7 @@
             <% }) %>
             </tbody>
         </table>
-        <button class="btn btn-danger margin-top-20" onclick="delMail('/mail/draft/del')">删除草稿</button>
+        <button class="btn btn-danger margin-top-20" onclick="delMail('/draft')">删除草稿</button>
        <div class="pull-right">
 
            <ul class="pager">
@@ -35,7 +35,7 @@
                <li class="<%= page == '1' ? 'hide' : null%>"><a href="/mail/draft?page=<%= JSON.parse(page) - 1%>">上一页</a></li>
                <li class="<%= page == pageTotal ? 'hide' : ''%>"><a href="/mail/draft?page=<%= JSON.parse(page) + 1%>">下一页</a></li>
                <li><input type="text" id="page" class="page"></li>
-               <li><a href="JavaScript:getPageData(<%= pageTotal %>)">跳转</a></li>
+               <li><a href="JavaScript:getPageData('<%= pageTotal %>','draft')">跳转</a></li>
            </ul>
        </div>
     </div>

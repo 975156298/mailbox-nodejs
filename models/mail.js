@@ -4,17 +4,23 @@ module.exports = {
     create: function create(mail){
         return Mail.create(mail).exec();
     },
-    getSendMail: function getSendMail(inMail){
+    getSendMail: function getSendMail(inMail,state,page){  //获取发送的邮件
+        var start = (page -1) * 10;
         return Mail
-            .find({inMail: inMail})
+            .find({inMail: inMail,state: state})
             .populate({ path: 'inMail', model: 'User' })
+            .skip(start)
+            .limit(10)
             .sort({_id: -1})
             .exec();
     },
-    getAcceptMail: function getAcceptMali(toMail){
+    getAcceptMail: function getAcceptMali(toMail,page){  //获取接受的邮件
+        var start = (page -1) * 10;
         return Mail
             .find({toMail: toMail})
             .populate({ path: 'inMail', model: 'User' })
+            .skip(start)
+            .limit(10)
             .sort({_id: -1})
             .exec();
     },

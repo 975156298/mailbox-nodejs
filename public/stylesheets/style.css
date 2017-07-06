@@ -57,3 +57,9 @@ body {
   padding: 3px;
 
 }
+.color-success{
+  color: green;
+}
+.color-fail{
+  color: red;
+}
