@@ -70,10 +70,28 @@ router.post('/write',checkLogin,function(req,res,next){
         created_at: nowDate,
         updated_at: nowDate
     };
+    var mail = {
+        toMail: req.body.toMail,
+        inMail: req.session.email._id,
+        title: req.body.title,
+        text: req.body.text,
+        state: '3',
+        isread: '1',
+        created_at: nowDate,
+        updated_at: nowDate
+    };
     MailModel.create(mailInfo)
         .then(function (result) {
             if (result.result.ok == 1) {
-                return res.json({status: 200, message: '发送邮件成功'})
+                MailModel.create(mail)
+                    .then(function (result) {
+                        if (result.result.ok == 1) {
+                            return res.json({status: 200, message: '发送邮件成功'})
+                        }
+                    })
+                    .catch(function (e) {
+                        next(e);
+                    });
             } else {
                 return res.json({status: 500, message: '发送邮件失败'})
             }

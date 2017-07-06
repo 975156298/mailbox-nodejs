@@ -23,7 +23,7 @@ module.exports = {
     getAcceptMail: function getAcceptMali(toMail,page){  //获取接受的邮件
         var start = (page -1) * 10;
         return Mail
-            .find({toMail: toMail})
+            .find({toMail: toMail,state:'3'})
             .populate({ path: 'inMail', model: 'User' })
             .skip(start)
             .limit(10)
