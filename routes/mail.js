@@ -9,10 +9,27 @@ var nowDate = require('../middlewares/common').nowDate();
 
 
 router.get('/', checkLogin, function (req, res, next) {
-    res.render('inbox', {
-        title: 'mailbox',
-        active: 2
-    })
+    var page = req.query.page || 1 ;
+    MailModel.getAcceptMail(req.session.email.email,page)
+        .then(function (result) {
+            MailModel.getMailNum({toMail: req.session.email.email})
+                .then(function(num){
+                    var pageTotal = Math.ceil(JSON.parse(num) / 10);
+                    res.render('inbox', {
+                        title: 'mailbox',
+                        active: 2,
+                        mails: result,
+                        page: page,
+                        pageTotal: pageTotal
+                    })
+                })
+                .catch(function (e) {
+                    next(e);
+                });
+        })
+        .catch(function (e) {
+            next(e);
+        });
 });
 
 router.get('/write', checkLogin, function (req, res, next) {
@@ -49,6 +66,7 @@ router.post('/write',checkLogin,function(req,res,next){
         title: req.body.title,
         text: req.body.text,
         state: '0',
+        isread: '1',
         created_at: nowDate,
         updated_at: nowDate
     };
@@ -63,14 +81,6 @@ router.post('/write',checkLogin,function(req,res,next){
         .catch(function (e) {
             next(e);
         });
-});
-
-router.get('/inbox',function(req,res,next){
-
-});
-
-router.post('/inbox',function(req,res,next){
-
 });
 
 router.get('/draft', checkLogin, function (req, res, next) {
@@ -104,6 +114,7 @@ router.post('/draft', checkLogin, function (req, res, next) {
         title: req.body.title,
         text: req.body.text,
         state: '2',
+        isread: '1',
         created_at: nowDate,
         updated_at: nowDate
     };
