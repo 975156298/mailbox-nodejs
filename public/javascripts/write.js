@@ -8,10 +8,6 @@ function createWE(id){
 
 }
 
-function sendMail(id,url){
-    $('#text').val(editor.txt.html());
-}
-
 function saveDraft(id,url){
     $('#text').val(editor.txt.html());
     postAjax(url,$('#'+id).serialize(),function(data){
@@ -25,8 +21,15 @@ function saveDraft(id,url){
     })
 }
 
-function sendMail(){
-    postAjax('/mail/write','',function(data){
-
+function sendMail(id,url){
+    $('#text').val(editor.txt.html());
+    postAjax(url,$('#'+id).serialize(),function(data){
+        if(data.status == 200){
+            showAlert(data.message,function(){
+                jumpPage('/main')
+            })
+        }else{
+            showAlert(data.message);
+        }
     });
 }

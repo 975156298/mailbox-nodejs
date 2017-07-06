@@ -96,7 +96,7 @@ router.get('/write', checkLogin, function (req, res, next) {
     })
 });
 
-router.post('/write',checkLogin, function(req,res,next){
+/*router.post('/write',checkLogin, function(req,res,next){
     var transport = nodemailer.createTransport('smtps://15733112788%40163.com:a950710@smtp.163.com');
     var mailOptions = {
         from: '15733112788@163.com',  //发件人
@@ -113,7 +113,32 @@ router.post('/write',checkLogin, function(req,res,next){
         console.log("发送成功");
         console.log('Message sent: ' + info.response);
     });
-});
+}); 邮箱的一个发送  */
 
+
+router.post('/write',checkLogin,function(req,res,next){
+   console.log(req.body);
+    var mailInfo = {
+        toMail: req.body.toMail,
+        inMail: req.session.email._id,
+        title: req.body.title,
+        text: req.body.text,
+        state: '0',
+        created_at: nowDate,
+        updated_at: nowDate
+    };
+    console.log(mailInfo)
+    MailModel.create(mailInfo)
+        .then(function (result) {
+            if (result.result.ok == 1) {
+                return res.json({status: 200, message: '发送邮件成功'})
+            } else {
+                return res.json({status: 500, message: '发送邮件失败'})
+            }
+        })
+        .catch(function (e) {
+            next(e);
+        });
+});
 
 module.exports = router;
