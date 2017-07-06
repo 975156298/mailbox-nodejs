@@ -1,6 +1,6 @@
 <%- include('common/head.ejs') %>
 
-<div>
+<div id="draft">
     <div class="margin-left-20 margin-right-20">
         <button class="btn btn-danger" onclick="delMail('/draft')">删除草稿</button>
         <table class="table table-striped">
@@ -17,7 +17,7 @@
             </thead>
             <tbody>
             <% mails.forEach(function(mail){ %>
-            <tr>
+            <tr onclick="editMail()">
                 <td><input type="checkbox" name="checked" value="<%= mail._id %>"></td>
                 <td><span class="glyphicon glyphicon-envelope"></span></td>
                 <td><%= mail.toMail %></td>

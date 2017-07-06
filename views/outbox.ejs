@@ -1,8 +1,5 @@
-
 <%- include('common/head.ejs') %>
-<h1>发件箱</h1>
-
-<div>
+<div >
     <div class="margin-left-20 margin-right-20">
         <button class="btn btn-warning" onclick="delMail('/outbox')">删除</button>
         <button class="btn btn-success" onclick="getMail('/outbox/','0')">发送成功</button>
@@ -35,7 +32,6 @@
         <button class="btn btn-success margin-top-20" onclick="getMail('/outbox/','0')">发送成功</button>
         <button class="btn btn-danger margin-top-20" onclick="getMail('/outbox/','1')">发送失败</button>
         <div class="pull-right">
-
             <ul class="pager">
                 <span class="margin-right-20"><%= page + '/' + pageTotal  %></span>
                 <li class="<%= page == '1' ? 'hide' : null%>"><a href="/mail/outbox?page=<%= JSON.parse(page) - 1%>">上一页</a></li>
