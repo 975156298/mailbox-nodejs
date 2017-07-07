@@ -32,6 +32,16 @@ router.get('/', checkLogin, function (req, res, next) {
         });
 });
 
+router.post('/',checkLogin, function(req,res,next){
+    MailModel.update(req.body.id,{isread: '0'})
+        .then(function(result){
+           return res.json({status:200})
+        })
+        .catch(function(e){
+            next(e);
+        })
+});
+
 router.get('/write', checkLogin, function (req, res, next) {
     res.render('write', {
         title: 'mailbox',
